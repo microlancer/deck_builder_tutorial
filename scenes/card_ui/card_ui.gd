@@ -24,9 +24,12 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 
-func _on_drop_point_detector_area_entered(area):
+func _on_drop_point_detector_area_entered(area: Area2D):
+	
 	if not targets.has(area):
+		# I haven't played this card YET, so let's add it to the playing zone.
 		targets.append(area)
 
-func _on_drop_point_detector_area_exited(area):
+func _on_drop_point_detector_area_exited(area: Area2D):
+	# Take the card out of the playing zone.
 	targets.erase(area)

@@ -1,9 +1,12 @@
 extends CardState
 
+# card_ui inherited from parent
+
 func enter() -> void:
+	state_name = "base"
 	if not card_ui.is_node_ready():
 		await card_ui.ready
-		
+	
 	card_ui.reparent_requested.emit(card_ui)
 	card_ui.color.color = Color.WEB_GREEN
 	card_ui.state.text = "BASE"
@@ -12,5 +15,6 @@ func enter() -> void:
 func on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse"):
 		card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+		get_viewport().set_input_as_handled() 
 		transition_requested.emit(self, CardState.State.CLICKED)
 		
