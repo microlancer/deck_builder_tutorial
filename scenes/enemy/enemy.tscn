@@ -17,6 +17,7 @@ texture = ExtResource("1_ut1a5")
 metadata/_edit_lock_ = true
 
 [node name="Arrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(17, 0)
 rotation = -1.5708
 texture = ExtResource("2_h2w01")

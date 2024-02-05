@@ -9,3 +9,5 @@ func enter() -> void:
 	
 	card_ui.play()
 	
+	Events.tooltip_hide_requested.emit()
+	
