@@ -3,8 +3,6 @@ extends CardState
 func enter() -> void:
 	state_name = "clicked"
 	# when i clicked the card, it will do this immediately:
-	card_ui.color.color = Color.ORANGE
-	card_ui.state.text = "CLICKED"
 	card_ui.drop_point_detector.monitoring = true
 	
 # This has nothing to do with click inputs. Only, "mouse motion" inputs.
