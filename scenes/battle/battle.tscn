@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://l5u15ujxy0ma"]
+[gd_scene load_steps=16 format=3 uid="uid://l5u15ujxy0ma"]
 
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_ar101"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_rxi2g"]
 [ext_resource type="PackedScene" uid="uid://drb0yrgn56t3d" path="res://scenes/enemy/enemy.tscn" id="2_o47ab"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_ycg7x"]
 [ext_resource type="PackedScene" uid="uid://br6ey5nliy23l" path="res://scenes/card_target_selector/card_target_selector.tscn" id="3_cv28v"]
-[ext_resource type="Resource" uid="uid://b6270gnk71tyn" path="res://enemies/crab/test_enemy.tres" id="3_qvkfi"]
 [ext_resource type="PackedScene" uid="uid://cwgp20b6q5dhi" path="res://scenes/player/player.tscn" id="3_sovbc"]
 [ext_resource type="Resource" uid="uid://da8yunimpnkeb" path="res://characters/warrior/warrior.tres" id="4_j5a7k"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="4_jn28x"]
+[ext_resource type="Resource" uid="uid://bdc4v8jtxpk7n" path="res://enemies/crab/crab_enemy.tres" id="5_0nmn1"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="7_6pphh"]
 [ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="8_3wqcw"]
 [ext_resource type="PackedScene" uid="uid://bvhfbr0a8edh1" path="res://scenes/ui/mana_ui.tscn" id="11_2wsah"]
@@ -38,9 +39,12 @@ shape = SubResource("RectangleShape2D_c3nk8")
 debug_color = Color(0, 0.6, 0.701961, 0.105882)
 metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="." instance=ExtResource("2_o47ab")]
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_jn28x")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_o47ab")]
 position = Vector2(208, 73)
-stats = ExtResource("3_qvkfi")
+stats = ExtResource("5_0nmn1")
 
 [node name="Player" parent="." instance=ExtResource("3_sovbc")]
 position = Vector2(48, 72)
@@ -95,3 +99,5 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("13_1xd8u")
 text = "End Turn"
+
+[connection signal="child_order_changed" from="EnemyHandler" to="." method="_on_enemy_handler_child_order_changed"]

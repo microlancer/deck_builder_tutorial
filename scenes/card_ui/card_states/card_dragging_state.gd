@@ -37,7 +37,6 @@ func on_input(event: InputEvent) -> void:
 		transition_requested.emit(self, CardState.State.BASE)		
 	elif minimum_drag_time_elapsed and (confirm and has_targets):
 		get_viewport().set_input_as_handled() 
-		print(has_targets)
 		# This function will stop the event from propagating to other cards with event handlers.
 		transition_requested.emit(self, CardState.State.RELEASED)
 		
