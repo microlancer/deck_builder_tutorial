@@ -4,6 +4,7 @@ func enter() -> void:
 	state_name = "clicked"
 	# when i clicked the card, it will do this immediately:
 	card_ui.drop_point_detector.monitoring = true
+	card_ui.original_index = card_ui.get_index()
 	
 # This has nothing to do with click inputs. Only, "mouse motion" inputs.
 func on_input(event: InputEvent) -> void:
