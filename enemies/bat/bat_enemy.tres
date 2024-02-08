@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://bnux3f5f0lyyt"]
+
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_4t8l8"]
+[ext_resource type="Texture2D" uid="uid://con6y7mc74c5a" path="res://art/tile_0120.png" id="1_86txd"]
+[ext_resource type="PackedScene" uid="uid://bplfm46m3yv7y" path="res://enemies/bat/bat_enemy_ai.tscn" id="1_yjhjh"]
+
+[resource]
+script = ExtResource("1_4t8l8")
+ai = ExtResource("1_yjhjh")
+max_health = 8
+art = ExtResource("1_86txd")
